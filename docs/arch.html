@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Strangler fig architecture</title>
+<style>body{margin:0;padding:16px;font-family:'Segoe UI',Arial,sans-serif;background:#fff;}svg{width:100%;height:auto;display:block;margin:0 auto;}</style>
+</head>
+<body>
+<svg viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,3 L0,6 Z" fill="#475569"/></marker>
+  </defs>
+
+  <rect x="60" y="160" width="160" height="70" rx="10" fill="#fff7e6" stroke="#d97706" stroke-width="1.5"/>
+  <text x="140" y="190" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">users</text>
+  <text x="140" y="212" text-anchor="middle" font-size="11" fill="#b45309">all traffic</text>
+
+  <rect x="340" y="140" width="200" height="110" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8"/>
+  <text x="440" y="170" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1d4ed8">gateway</text>
+  <text x="440" y="192" text-anchor="middle" font-size="11.5" fill="#475569">routes by ratio</text>
+  <text x="440" y="214" text-anchor="middle" font-size="10.5" fill="#64748b">0% → 20% → 50% → 100% new</text>
+
+  <rect x="680" y="80" width="240" height="80" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="1.6"/>
+  <text x="800" y="110" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c">legacy system</text>
+  <text x="800" y="132" text-anchor="middle" font-size="11" fill="#b91c1c">gradually strangled</text>
+
+  <rect x="680" y="220" width="240" height="80" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.6"/>
+  <text x="800" y="250" text-anchor="middle" font-size="13" font-weight="700" fill="#15803d">new system</text>
+  <text x="800" y="272" text-anchor="middle" font-size="11" fill="#166534">takes over slice by slice</text>
+
+  <line x1="220" y1="195" x2="340" y2="195" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="540" y1="175" x2="680" y2="120" stroke="#dc2626" stroke-width="1.4" stroke-dasharray="5 3" marker-end="url(#arr)"/>
+  <line x1="540" y1="215" x2="680" y2="260" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <text x="500" y="350" text-anchor="middle" font-size="11.5" fill="#64748b">incremental migration; roll back anytime by lowering the new ratio.</text>
+</svg>
+</body>
+</html>
